@@ -23,7 +23,7 @@ func Info(data interface{}, mode string) {
 		return
 	}
 	if b {
-		fmt.Println(data)
+		fmt.Println("[INFO] ", data)
 	} else {
 		logWriter(LogInfo, data)
 	}
@@ -37,7 +37,7 @@ func Error(data interface{}, mode string) {
 		return
 	}
 	if b {
-		fmt.Println("Log error: ", data)
+		fmt.Println("[ERROR] ", data)
 	} else {
 		logWriter(LogError, data)
 	}
@@ -50,7 +50,7 @@ func Warning(data interface{}, mode string) {
 		return
 	}
 	if b {
-		fmt.Println("Log warning: ", data)
+		fmt.Println("[WARNING] ", data)
 	} else {
 		logWriter(LogWarning, data)
 	}
@@ -63,7 +63,7 @@ func Debug(data interface{}, mode string) {
 		return
 	}
 	if b {
-		fmt.Println("Log debug: ", data)
+		fmt.Println("[DEBUG] ", data)
 	} else {
 		logWriter(LogDebug, data)
 	}
