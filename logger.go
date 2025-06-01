@@ -7,12 +7,13 @@ import (
 	"time"
 )
 
+var FilePath = "log.txt"
+
 const (
 	LogError   = "ERROR"
 	LogWarning = "WARNING"
 	LogInfo    = "INFO"
 	LogDebug   = "DEBUG"
-	FilePath   = "log.txt"
 )
 
 func Info(data interface{}, mode string) {
