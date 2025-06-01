@@ -78,7 +78,7 @@ func checkMode(mode string) (bool, error) {
 }
 
 func logWriter(level, data interface{}) {
-	file, err := os.OpenFile("log.txt", os.O_APPEND|os.O_RDWR|os.O_CREATE, 0666)
+	file, err := os.OpenFile("log/log.txt", os.O_APPEND|os.O_RDWR|os.O_CREATE, 0666)
 	if err != nil {
 		fmt.Println(err)
 		return
