@@ -3,6 +3,7 @@ package logger
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"time"
 )
 
@@ -11,6 +12,7 @@ const (
 	LogWarning = "WARNING"
 	LogInfo    = "INFO"
 	LogDebug   = "DEBUG"
+	FilePath   = "log.txt"
 )
 
 func Info(data interface{}, mode string) {
@@ -78,7 +80,12 @@ func checkMode(mode string) (bool, error) {
 }
 
 func logWriter(level, data interface{}) {
-	file, err := os.OpenFile("log/log.txt", os.O_APPEND|os.O_RDWR|os.O_CREATE, 0666)
+	err := os.MkdirAll(filepath.Dir(FilePath), os.ModePerm)
+	if err != nil {
+		fmt.Println("Failed to create directories:", err)
+		return
+	}
+	file, err := os.OpenFile(FilePath, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0666)
 	if err != nil {
 		fmt.Println(err)
 		return
